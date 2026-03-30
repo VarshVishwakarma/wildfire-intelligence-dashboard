@@ -11,7 +11,7 @@ Transforming millions of raw NASA satellite telemetry points into real-time, act
 📸 Visual Showcase
 
 <div align="center">
-<img src="assets/hero-dashboard.jpg" alt="Global Wildfire Command Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+<img src="assets/hero-dashboard.png" alt="Global Wildfire Command Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 
 
 
@@ -24,9 +24,9 @@ Transforming millions of raw NASA satellite telemetry points into real-time, act
 
 🌍 Global Data Render
 
-<img src="assets/india-view.jpg" alt="India View with NASA telemetry" width="400" style="border-radius: 8px;"/>
+<img src="assets/india-view.png" alt="India View with NASA telemetry" width="400" style="border-radius: 8px;"/>
 
-<img src="assets/global-map.jpg" alt="Global Map Render" width="400" style="border-radius: 8px;"/>
+<img src="assets/global-map.png" alt="Global Map Render" width="400" style="border-radius: 8px;"/>
 
 High-fidelity point rendering over localized geographic zones.
 
@@ -125,7 +125,7 @@ To use real satellite data and view images properly on your local repo:
 
 Data: Create a data/ folder in the root directory and place your downloaded NASA .csv files inside.
 
-Assets: Create an assets/ folder in the root directory and place your hero-dashboard.jpg, india-view.jpg, and global-map.jpg files inside to render this README correctly.
+Assets: Create an assets/ folder in the root directory and place your hero-dashboard.png, india-view.png, and global-map.png files inside to render this README correctly.
 
 5. Launch the Command Center
 
