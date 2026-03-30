@@ -11,7 +11,7 @@ Transforming millions of raw NASA satellite telemetry points into real-time, act
 📸 Visual Showcase
 
 <div align="center">
-<img src="/assets/hero-dashboard.png" alt="Global Wildfire Command Dashboard" width="800"/>
+<img src="assets/hero-dashboard.jpg" alt="Global Wildfire Command Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 
 
 
@@ -22,15 +22,15 @@ Transforming millions of raw NASA satellite telemetry points into real-time, act
 
 📍 Localized Threat Analysis
 
-📈 Temporal Analytics
+🌍 Global Data Render
 
-<img src="/assets/india-view.png" alt="India View with Datashading" width="400"/>
+<img src="assets/india-view.jpg" alt="India View with NASA telemetry" width="400" style="border-radius: 8px;"/>
 
-<img src="/assets/trends-view.png" alt="Trend Analysis" width="400"/>
+<img src="assets/global-map.jpg" alt="Global Map Render" width="400" style="border-radius: 8px;"/>
 
-High-fidelity, datashaded point rendering over localized geographic zones.
+High-fidelity point rendering over localized geographic zones.
 
-Time-series aggregation for detecting seasonal thermal spikes.
+Extreme-scale rendering of global thermal anomalies.
 
 🧠 The Problem Statement
 
@@ -81,33 +81,55 @@ Responsive, premium dark/light mode adaptable UI shell utilizing CSS Grid and Fl
 
 Prerequisites
 
-Ensure you have Python 3.9+ installed.
+Python 3.9 or higher
+
+Git installed on your machine
 
 1. Clone the Repository
 
-git clone [https://github.com/YourUsername/wildfire-intelligence-dashboard.git](https://github.com/YourUsername/wildfire-intelligence-dashboard.git)
+Open your terminal and clone the repository. (Note: Run this command only once to avoid creating nested folders!)
+
+git clone [https://github.com/VarshVishwakarma/wildfire-intelligence-dashboard.git](https://github.com/VarshVishwakarma/wildfire-intelligence-dashboard.git)
 cd wildfire-intelligence-dashboard
 
 
-2. Install Dependencies
+2. Set Up a Virtual Environment (Recommended)
 
-It is recommended to use a virtual environment (venv or conda).
+Keep your global Python environment clean by creating a dedicated virtual environment.
+
+Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+
+macOS/Linux:
+
+python3 -m venv venv
+source venv/bin/activate
+
+
+3. Install Dependencies
 
 pip install -r requirements.txt
 
 
-3. Launch the Application
+4. Setup Data (Optional)
 
-Run the Panel server. The dashboard will automatically open in your default browser at http://localhost:5006/app.
+By default, the dashboard features a "Zero-Crash Protocol" and will generate 5,000 realistic sample data points if no NASA data is found.
+
+To use real NASA FIRMS data:
+
+Create a data folder in the root directory: mkdir data
+
+Place your downloaded NASA .csv files inside the data folder.
+
+5. Launch the Command Center
+
+Start the Panel server. The --show flag will automatically open the dashboard in your default web browser.
 
 python -m panel serve app.py --show
 
-
-📊 The "Zero-Crash" Sample Data Mode
-
-To ensure frictionless onboarding for developers and recruiters, this project includes a Fail-Safe Mock Data Protocol.
-
-If you run the application without downloading the heavy NASA CSV datasets into the /data folder, the application will not crash. Instead, it catches the FileNotFoundError and autonomously generates 5,000 rows of highly realistic synthetic geospatial and temporal data. This guarantees that the UI, metrics, and architecture can be evaluated immediately upon cloning.
 
 📂 Project Structure
 
