@@ -81,13 +81,14 @@ Responsive, premium dark/light mode adaptable UI shell utilizing CSS Grid and Fl
 
 Prerequisites
 
-Python 3.9 or higher
+Python 3.9+ installed on your system.
 
-Git installed on your machine
+Git installed on your machine.
 
 1. Clone the Repository
 
-Open your terminal and clone the repository. (Note: Run this command only once to avoid creating nested folders!)
+Open your terminal and run the following command.
+(⚠️ Important: Only run this command once to avoid creating deeply nested folders!)
 
 git clone [https://github.com/VarshVishwakarma/wildfire-intelligence-dashboard.git](https://github.com/VarshVishwakarma/wildfire-intelligence-dashboard.git)
 cd wildfire-intelligence-dashboard
@@ -95,7 +96,7 @@ cd wildfire-intelligence-dashboard
 
 2. Set Up a Virtual Environment (Recommended)
 
-Keep your global Python environment clean by creating a dedicated virtual environment.
+Keep your global Python environment clean by creating a dedicated virtual environment for this project.
 
 Windows:
 
@@ -111,18 +112,20 @@ source venv/bin/activate
 
 3. Install Dependencies
 
+Install the required Python libraries using the provided requirements file:
+
 pip install -r requirements.txt
 
 
-4. Setup Data (Optional)
+4. Setup Data & Assets (Optional but Recommended)
 
-By default, the dashboard features a "Zero-Crash Protocol" and will generate 5,000 realistic sample data points if no NASA data is found.
+By default, the dashboard features a "Zero-Crash Protocol". If no data is found, it will instantly generate 5,000 highly realistic synthetic data points so you can test the UI immediately.
 
-To use real NASA FIRMS data:
+To use real satellite data and view images properly on your local repo:
 
-Create a data folder in the root directory: mkdir data
+Data: Create a data/ folder in the root directory and place your downloaded NASA .csv files inside.
 
-Place your downloaded NASA .csv files inside the data folder.
+Assets: Create an assets/ folder in the root directory and place your hero-dashboard.jpg, india-view.jpg, and global-map.jpg files inside to render this README correctly.
 
 5. Launch the Command Center
 
