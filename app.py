@@ -144,17 +144,43 @@ def wildfire_map(date_range, countries):
     # Wrap the custom URL in an hv.Tiles object to satisfy hvplot requirements
     localized_google_tiles = hv.Tiles('https://mt0.google.com/vt/lyrs=m&hl=en&gl=IN&x={X}&y={Y}&z={Z}')
 
-    return filtered.hvplot.points(
-        x='longitude', y='latitude',
-        # Switched to localized Google Maps tile server. 
-        # gl=IN ensures Indian borders (including PoK) are shown correctly while preserving text labels.
-        tiles=localized_google_tiles, 
-        datashade=True, 
-        cmap='fire',       # Makes hotspots glow
-        height=750,        # Increased map height
-        responsive=True,
-        xaxis=None, yaxis=None
-    ).opts(
+    # NASA-Level UI Upgrade: Hybrid Approach
+    if len(filtered) > 100000:
+        # Fallback to datashader for extreme scale performance
+        point_plot = filtered.hvplot.points(
+            x='longitude', y='latitude',
+            tiles=localized_google_tiles, 
+            datashade=True, 
+            cmap='fire',
+            height=750,
+            responsive=True,
+            xaxis=None, yaxis=None
+        )
+    else:
+        # Premium NASA-Level Rendering for < 100k points
+        # Scale dot size dynamically by brightness if available, else static size
+        if 'brightness' in filtered.columns:
+            point_size = hv.dim('brightness') * 0.02
+            hover_columns = ['brightness', 'frp'] if 'frp' in filtered.columns else ['brightness']
+        else:
+            point_size = 8
+            hover_columns = []
+            
+        point_plot = filtered.hvplot.points(
+            x='longitude', y='latitude',
+            tiles=localized_google_tiles,
+            color='#FF1100',      # Crisp, vivid thermal red
+            size=point_size,      # Dynamic sizing based on intensity
+            alpha=0.6,            # Semi-transparent to show overlaps
+            hover_cols=hover_columns, # Include hover data
+            height=750,
+            responsive=True,
+            xaxis=None, yaxis=None,
+            line_color='black',   # Adds subtle contrast to separate overlapping dots
+            line_width=0.3
+        )
+
+    return point_plot.opts(
         toolbar='above', 
         default_tools=['pan', 'wheel_zoom']
     )
